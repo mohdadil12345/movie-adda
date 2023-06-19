@@ -1,11 +1,369 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import img1 from "../assets/slimg1.png";
+import img2 from "../assets/slim2.svg";
+import MySlider from "./MySlider";
 
 function HomeSection2() {
+  let data = [
+    {
+      adult: false,
+      backdrop_path: "/6l1SV3CWkbbe0DcAK1lyOG8aZ4K.jpg",
+      genre_ids: [28, 80, 53],
+      id: 385687,
+      original_language: "en",
+      original_title: "Fast X",
+      overview:
+        "Over many missions and against impossible odds, Dom Toretto and his family have outsmarted, out-nerved and outdriven every foe in their path. Now, they confront the most lethal opponent they've ever faced: A terrifying threat emerging from the shadows of the past who's fueled by blood revenge, and who is determined to shatter this family and destroy everything—and everyone—that Dom loves, forever.",
+      popularity: 11393.514,
+      poster_path: "/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
+      release_date: "2023-05-17",
+      title: "Fast X",
+      video: false,
+      vote_average: 7.3,
+      vote_count: 1705,
+    },
+    {
+      adult: false,
+      backdrop_path: "/1inZm0xxXrpRfN0LxwE2TXzyLN6.jpg",
+      genre_ids: [28, 53, 80],
+      id: 603692,
+      original_language: "en",
+      original_title: "John Wick: Chapter 4",
+      overview:
+        "With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.",
+      popularity: 3761.669,
+      poster_path: "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+      release_date: "2023-03-22",
+      title: "John Wick: Chapter 4",
+      video: false,
+      vote_average: 7.9,
+      vote_count: 3077,
+    },
+    {
+      adult: false,
+      backdrop_path: "/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg",
+      genre_ids: [16, 10751, 12, 14, 35],
+      id: 502356,
+      original_language: "en",
+      original_title: "The Super Mario Bros. Movie",
+      overview:
+        "While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
+      popularity: 3163.738,
+      poster_path: "/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+      release_date: "2023-04-05",
+      title: "The Super Mario Bros. Movie",
+      video: false,
+      vote_average: 7.8,
+      vote_count: 4851,
+    },
+    {
+      adult: false,
+      backdrop_path: "/nGxUxi3PfXDRm7Vg95VBNgNM8yc.jpg",
+      genre_ids: [28, 12, 16, 878],
+      id: 569094,
+      original_language: "en",
+      original_title: "Spider-Man: Across the Spider-Verse",
+      overview:
+        "After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself pitted against the other Spiders and must set out on his own to save those he loves most.",
+      popularity: 2616.839,
+      poster_path: "/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+      release_date: "2023-05-31",
+      title: "Spider-Man: Across the Spider-Verse",
+      video: false,
+      vote_average: 8.7,
+      vote_count: 1451,
+    },
+    {
+      adult: false,
+      backdrop_path: "/9NgtktUFLm9cnFDFaekx2ROh84f.jpg",
+      genre_ids: [28, 12, 878],
+      id: 667538,
+      original_language: "en",
+      original_title: "Transformers: Rise of the Beasts",
+      overview:
+        "When a new threat capable of destroying the entire planet emerges, Optimus Prime and the Autobots must team up with a powerful faction known as the Maximals. With the fate of humanity hanging in the balance, humans Noah and Elena will do whatever it takes to help the Transformers as they engage in the ultimate battle to save Earth.",
+      popularity: 2097.734,
+      poster_path: "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg",
+      release_date: "2023-06-06",
+      title: "Transformers: Rise of the Beasts",
+      video: false,
+      vote_average: 7.3,
+      vote_count: 328,
+    },
+    {
+      adult: false,
+      backdrop_path: "/vQ5T84t8h4N2xAswNFW9fkVIyZq.jpg",
+      genre_ids: [9648, 53, 878],
+      id: 536437,
+      original_language: "en",
+      original_title: "Hypnotic",
+      overview:
+        "A detective becomes entangled in a mystery involving his missing daughter and a secret government program while investigating a string of reality-bending crimes.",
+      popularity: 2032.074,
+      poster_path: "/3IhGkkalwXguTlceGSl8XUJZOVI.jpg",
+      release_date: "2023-05-11",
+      title: "Hypnotic",
+      video: false,
+      vote_average: 6.5,
+      vote_count: 187,
+    },
+    {
+      adult: false,
+      backdrop_path: "/35OoC3JxHXrAOg4FAa2DrPCzUX9.jpg",
+      genre_ids: [10749, 18],
+      id: 1010581,
+      original_language: "es",
+      original_title: "Culpa mía",
+      overview:
+        "Noah must leave her city, boyfriend, and friends to move into William Leister's mansion, the flashy and wealthy husband of her mother Rafaela. As a proud and independent 17 year old, Noah resists living in a mansion surrounded by luxury. However, it is there where she meets Nick, her new stepbrother, and the clash of their strong personalities becomes evident from the very beginning.",
+      popularity: 1857.31,
+      poster_path: "/w46Vw536HwNnEzOa7J24YH9DPRS.jpg",
+      release_date: "2023-06-08",
+      title: "My Fault",
+      video: false,
+      vote_average: 8.4,
+      vote_count: 598,
+    },
+    {
+      adult: false,
+      backdrop_path: "/kIX6VS5FTMURcK3WlNNkPss60e4.jpg",
+      genre_ids: [878, 28, 12],
+      id: 298618,
+      original_language: "en",
+      original_title: "The Flash",
+      overview:
+        "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
+      popularity: 1807.078,
+      poster_path: "/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg",
+      release_date: "2023-06-13",
+      title: "The Flash",
+      video: false,
+      vote_average: 6.9,
+      vote_count: 334,
+    },
+    {
+      adult: false,
+      backdrop_path: "/dTsOvK19Brm1u2p06K7qlTyKHIi.jpg",
+      genre_ids: [28, 10752, 53],
+      id: 1074034,
+      original_language: "en",
+      original_title: "Ambush",
+      overview:
+        "When a small outpost is ambushed, a US Army squad must take the battle below ground on a high-stakes mission in a new type of warfare the likes of which they have never seen.",
+      popularity: 1379.579,
+      poster_path: "/3QjtDMS7PB4SMj0nAJQiE86Lo0w.jpg",
+      release_date: "2023-02-24",
+      title: "Ambush",
+      video: false,
+      vote_average: 5.9,
+      vote_count: 14,
+    },
+    {
+      adult: false,
+      backdrop_path: "/5YZbUmjbMa3ClvSW1Wj3D6XGolb.jpg",
+      genre_ids: [878, 12, 28],
+      id: 447365,
+      original_language: "en",
+      original_title: "Guardians of the Galaxy Vol. 3",
+      overview:
+        "Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.",
+      popularity: 1336.974,
+      poster_path: "/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg",
+      release_date: "2023-05-03",
+      title: "Guardians of the Galaxy Vol. 3",
+      video: false,
+      vote_average: 8.1,
+      vote_count: 1985,
+    },
+    {
+      adult: false,
+      backdrop_path: "/8rpDcsfLJypbO6vREc0547VKqEv.jpg",
+      genre_ids: [878, 12, 28],
+      id: 76600,
+      original_language: "en",
+      original_title: "Avatar: The Way of Water",
+      overview:
+        "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+      popularity: 1322.791,
+      poster_path: "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      release_date: "2022-12-14",
+      title: "Avatar: The Way of Water",
+      video: false,
+      vote_average: 7.7,
+      vote_count: 8624,
+    },
+    {
+      adult: false,
+      backdrop_path: "/9t0tJXcOdWwwxmGTk112HGDaT0Q.jpg",
+      genre_ids: [27, 53],
+      id: 890771,
+      original_language: "en",
+      original_title: "The Black Demon",
+      overview:
+        "Oilman Paul Sturges' idyllic family vacation turns into a nightmare when they encounter a ferocious megalodon shark that will stop at nothing to protect its territory. Stranded and under constant attack, Paul and his family must somehow find a way to get his family back to shore alive before it strikes again in this epic battle between humans and nature.",
+      popularity: 1298.475,
+      poster_path: "/uiFcFIjig0YwyNmhoxkxtAAVIL2.jpg",
+      release_date: "2023-04-26",
+      title: "The Black Demon",
+      video: false,
+      vote_average: 6.4,
+      vote_count: 181,
+    },
+    {
+      adult: false,
+      backdrop_path: "/ribiMu3iINPxDkofErPxe8jQ8L0.jpg",
+      genre_ids: [12, 10751, 14, 10749],
+      id: 447277,
+      original_language: "en",
+      original_title: "The Little Mermaid",
+      overview:
+        "The youngest of King Triton’s daughters, and the most defiant, Ariel longs to find out more about the world beyond the sea, and while visiting the surface, falls for the dashing Prince Eric. With mermaids forbidden to interact with humans, Ariel makes a deal with the evil sea witch, Ursula, which gives her a chance to experience life on land, but ultimately places her life – and her father’s crown – in jeopardy.",
+      popularity: 1246.928,
+      poster_path: "/ym1dxyOk4jFcSl4Q2zmRrA5BEEN.jpg",
+      release_date: "2023-05-18",
+      title: "The Little Mermaid",
+      video: false,
+      vote_average: 6.2,
+      vote_count: 683,
+    },
+    {
+      adult: false,
+      backdrop_path: "/aAgGrfBwna1nO4M2USxwFgK5O0t.jpg",
+      genre_ids: [53, 27],
+      id: 713704,
+      original_language: "en",
+      original_title: "Evil Dead Rise",
+      overview:
+        "A reunion between two estranged sisters gets cut short by the rise of flesh-possessing demons, thrusting them into a primal battle for survival as they face the most nightmarish version of family imaginable.",
+      popularity: 1210.372,
+      poster_path: "/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg",
+      release_date: "2023-04-12",
+      title: "Evil Dead Rise",
+      video: false,
+      vote_average: 7.1,
+      vote_count: 1640,
+    },
+    {
+      adult: false,
+      backdrop_path: "/gMJngTNfaqCSCqGD4y8lVMZXKDn.jpg",
+      genre_ids: [28, 12, 878],
+      id: 640146,
+      original_language: "en",
+      original_title: "Ant-Man and the Wasp: Quantumania",
+      overview:
+        "Super-Hero partners Scott Lang and Hope van Dyne, along with with Hope's parents Janet van Dyne and Hank Pym, and Scott's daughter Cassie Lang, find themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought possible.",
+      popularity: 1144.621,
+      poster_path: "/qnqGbB22YJ7dSs4o6M7exTpNxPz.jpg",
+      release_date: "2023-02-15",
+      title: "Ant-Man and the Wasp: Quantumania",
+      video: false,
+      vote_average: 6.5,
+      vote_count: 3311,
+    },
+    {
+      adult: false,
+      backdrop_path: "/94TIUEhuwv8PhdIADEvSuwPljS5.jpg",
+      genre_ids: [28, 10752],
+      id: 840326,
+      original_language: "fi",
+      original_title: "Sisu",
+      overview:
+        "Deep in the wilderness of Lapland, Aatami Korpi is searching for gold but after he stumbles upon Nazi patrol, a breathtaking and gold-hungry chase through the destroyed and mined Lapland wilderness begins.",
+      popularity: 1070.082,
+      poster_path: "/ygO9lowFMXWymATCrhoQXd6gCEh.jpg",
+      release_date: "2023-01-27",
+      title: "Sisu",
+      video: false,
+      vote_average: 7.4,
+      vote_count: 701,
+    },
+    {
+      adult: false,
+      backdrop_path: "/lQwW349qRRgHUH1KkRHXAANrzJO.jpg",
+      genre_ids: [10752, 28, 53],
+      id: 882569,
+      original_language: "en",
+      original_title: "Guy Ritchie's The Covenant",
+      overview:
+        "During the war in Afghanistan, a local interpreter risks his own life to carry an injured sergeant across miles of grueling terrain.",
+      popularity: 1067.486,
+      poster_path: "/kVG8zFFYrpyYLoHChuEeOGAd6Ru.jpg",
+      release_date: "2023-04-19",
+      title: "Guy Ritchie's The Covenant",
+      video: false,
+      vote_average: 7.7,
+      vote_count: 563,
+    },
+    {
+      adult: false,
+      backdrop_path: "/fIlmxFWplRXTACPoGnOuwIwzBuF.jpg",
+      genre_ids: [28, 35, 80],
+      id: 879444,
+      original_language: "en",
+      original_title: "Accident Man: Hitman's Holiday",
+      overview:
+        "The Accident Man is back, and this time he must best the top assassins in the world to protect the ungrateful son of a mafia boss, save the life of his only friend and rekindle his relationship with his maniacal father figure.",
+      popularity: 932.371,
+      poster_path: "/zC5SJ18v9AhiHoFOIzZASqSxsPh.jpg",
+      release_date: "2022-10-14",
+      title: "Accident Man: Hitman's Holiday",
+      video: false,
+      vote_average: 6.7,
+      vote_count: 80,
+    },
+    {
+      adult: false,
+      backdrop_path: "/oG6kFmxvwrOGKEmqvLNNI6lH0EO.jpg",
+      genre_ids: [10752, 53, 28, 12, 9648, 878, 18],
+      id: 1018494,
+      original_language: "en",
+      original_title: "Operation Seawolf",
+      overview:
+        "During the last days of World War II, Germany, desperate for any last grasp to defeat the allied powers, looked to their last remaining weapons and soldiers. The German Navy and the last remaining U-Boats were formed together for one desperate last mission – a mission to attack the United States Homeland, known as Operation Seawolf. Captain Hans Kessler, a grizzled submarine commander from both World Wars, is called into service to make one mission a success and help turn the tide of the war.",
+      popularity: 910.576,
+      poster_path: "/eqm5EAyC9hJCN5qutuW4Ka1xYbU.jpg",
+      release_date: "2022-10-07",
+      title: "Operation Seawolf",
+      video: false,
+      vote_average: 6.2,
+      vote_count: 48,
+    },
+    {
+      adult: false,
+      backdrop_path: "/hiHGRbyTcbZoLsYYkO4QiCLYe34.jpg",
+      genre_ids: [27, 53],
+      id: 758323,
+      original_language: "en",
+      original_title: "The Pope's Exorcist",
+      overview:
+        "Father Gabriele Amorth, Chief Exorcist of the Vatican, investigates a young boy's terrifying possession and ends up uncovering a centuries-old conspiracy the Vatican has desperately tried to keep hidden.",
+      popularity: 891.245,
+      poster_path: "/gNPqcv1tAifbN7PRNgqpzY8sEJZ.jpg",
+      release_date: "2023-04-05",
+      title: "The Pope's Exorcist",
+      video: false,
+      vote_average: 7.2,
+      vote_count: 1415,
+    },
+  ];
+
+
+  console.log(data[0]);
+
+
+
   return (
-    <div className='homeSection'>
-        <h1>Home Section2</h1>
+    <div className="homeSection">
+      <h2>Popular</h2>
+      <div>
+        <MySlider imageType={"backdrop_path"} slidesToShow={4} data = {data}/>
+      </div>
+      <h2>Trending</h2>
+      <div>
+        <MySlider  imageType={"poster_path"} data = {data}/>
+      </div>
     </div>
-  )
+  );
 }
 
-export default HomeSection2
+export default HomeSection2;
