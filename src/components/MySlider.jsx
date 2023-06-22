@@ -1,6 +1,7 @@
 import React from "react";
 import {  useNavigate } from "react-router-dom";
 import Slider from "react-slick";
+import "./styles/MySlider.scss"
 
 function MySlider(props) {
   const settings = {
@@ -37,12 +38,17 @@ function MySlider(props) {
     ],
   };
 
+
   const navigate= useNavigate()
 
   const lsadata = (data) => {
     console.log(data);
 
-    localStorage.setItem("lsdat", JSON.stringify(data));
+    localStorage.setItem("lsdat", JSON.stringify(data.id));
+    if (props.setid) {
+      props.setid(data.id)
+      
+    }
     // window.location.href = "/details"
     navigate("/details")
   };
@@ -51,7 +57,7 @@ function MySlider(props) {
       {props.data.map((movie, i) => (
         <div onClick={() => lsadata(movie)} className="slide-div" key={i}>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movie[props.imageType]}`}
+            src={`https://image.tmdb.org/t/p/w300/${movie[props.imageType]}`}
             alt=""
           />
           <div className={props.class || "slide-cont1"}>

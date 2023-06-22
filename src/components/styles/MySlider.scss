@@ -1,0 +1,28 @@
+.slide-div {
+    position: relative;
+    padding: 10px;
+
+    .slide-cont1 {
+      color: white;
+      background: rgba(0, 0, 0, 0.8);
+      // backdrop-filter: blur(5px);
+      position: absolute;
+      bottom: 10px;
+      // height: calc(100% - 20px);
+      left: 10px;
+      width: calc(100% - 20px);
+      padding: 10px;
+      border-radius: 0px 0px 8px 8px;
+      h4 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 1px 1px 10px rgba(0,0,0,0.6);
+    }
+  }
+

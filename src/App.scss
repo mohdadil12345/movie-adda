@@ -1,8 +1,11 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+button{
+  cursor: pointer;
 }
 
 .nav {
@@ -102,7 +105,25 @@
         margin-bottom: 32px;
       }
       .btn1 {
-        padding: 8px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        border: none;
+        font-weight: bold;
+        border: 1px solid white;
+        background: white;
+      }
+      .btn2 {
+        padding: 10px 20px;
+        border-radius: 4px;
+        background: linear-gradient(
+          -153.1deg,
+          #000000 -13.38%,
+          rgba(0, 0, 0, 0.367) 64.68%
+        );
+        color: white;
+        border: 1px solid white;
+        margin-left: 10px;
+        font-weight: bold;
       }
     }
 
@@ -128,80 +149,242 @@
   }
 }
 
-.homeSection{
-  background-color: rgb(4, 4, 63);
+.homeSection {
+  background: linear-gradient(
+    45deg,
+    rgba(26, 29, 41, 0.8),
+    rgba(26, 29, 41, 0.7)
+  );
+
   padding: 40px;
-  h2{
+  position: relative;
+  h2 {
     color: white;
     margin: 20px 10px 10px;
   }
-  .slide-div{
-    position: relative;
-    padding: 10px;
+}
 
+#details {
+  background-color: rgb(4, 4, 63);
+  background: #0f1b33;
+  background: #034b89;
 
-    .slide-cont1{
-      color: white;
-      background: rgba(0,0,0 , 0.8);
-      // backdrop-filter: blur(5px);
-      position: absolute;
-      bottom: 10px;
-      // height: calc(100% - 20px);
-      left: 10px;
-      width: calc(100% - 20px);
-      padding: 10px;
-      border-radius: 0px 0px 8px 8px;
-      h4{
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+  padding: 100px 80px 80px;
+  .section1 {
+    color: white;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+
+    .image {
+      // border: 1px solid red;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.2);
+      button {
+        background: white;
+        padding: 10px;
+        border-radius: 4px;
+        border: none;
+        font-weight: bold;
+      }
+      img {
+        border-radius: 16px;
+        width: 100%;
       }
     }
-    img{
-      width: 100%;
-      border-radius: 8px;
-  
+    .info {
+      // border: 2px solid rgb(220, 18, 15);
+
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      // background: rgba(0, 0, 0, 0.2);
+      background: #0f1b33;
+      background: rgba(0, 0, 0, 0.2);
+      .overview {
+        line-height: 25px;
+        // border: 2px solid rgb(0, 255, 234);
+
+        max-width: 450px;
+        font-size: 15px;
+      }
+      .intro {
+        display: grid;
+        grid-template-columns: 200px 200px;
+        gap: 10px;
+        // border: 1px solid rgb(125, 87, 87);
+        width: max-content;
+      }
+
+      .text {
+        width: 564px;
+        height: 180px;
+        // border: 2px solid red;
+        .btndiv {
+          display: flex;
+          gap: 30px;
+          margin-top: 40px;
+        }
+
+        .button2 {
+          padding: 20px 40px;
+          border-radius: 44px;
+          border: none;
+          background: linear-gradient(166.88deg, #7d96dc 5.05%, #1d4ed8 90.55%);
+          line-height: 20px;
+          font-size: 25px;
+          color: white;
+          background: rgba(255, 255, 255, 0.08);
+          line-height: 20px;
+          font-size: 25px;
+        }
+      }
+    }
+    .recently-opened {
+      background: rgba(0, 0, 0, 0.2);
+      // border: 2px solid rgb(220, 217, 15);
+    }
+  }
+
+  .section2 {
+    // border: 2px solid white;
+    margin-top: 10px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .trailer{
+    width: 100%;
+    height: 100vh;
+    position: fixed ;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: rgba(255,255,255, 0.7);
+    background: rgba(0,0,0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    backdrop-filter: blur(20px);
+    
+    iframe{
+      width: 60%;
+      height: 60%;
+      border-radius: 4px;
+    }
+    h1{
+      color: rgb(180, 180, 180);
+      background: rgba(255,255,255, 0.1);
+      
+      padding: 20px 40px;
+      font-size: 40px;
+      border-radius: 4px;
+    }
+  }
+
+  .review {
+    margin-top: 10px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.3);
+
+    color: rgb(0, 0, 0);
+
+    #user_review {
+      .rev {
+        background-color: rgb(255, 255, 255);
+        min-height: 248px;
+        border: 2px solid black;
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        img {
+          width: 100px;
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+          height: 100px;
+          object-fit: cover;
+          object-position: top center;
+          border-radius: 50%;
+          margin: auto;
+          background: url("./assets/avatar.svg");
+          background-size: cover;
+        }
+        h4 {
+          margin: 10px 0;
+        }
+        p {
+          font-size: 12px;
+        }
+        button {
+          margin-top: 10px;
+          border-radius: 22px;
+          border: none;
+          padding: 5px 10px;
+          background-color: #034b89;
+          color: white;
+        }
+      }
     }
   }
 }
 
-#details{
-  background-color: rgb(4, 4, 63);
-  padding: 100px 80px 80px;
+#login-page {
+  background: rgb(48, 48, 48);
+  height: 100vh;
   color: white;
-  display: grid;
-  grid-template-columns: 25% 75%;
-  .image{
-    // border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.2);
-    button{
-      background: white;
-      padding: 10px;
-      border-radius: 4px;
-      border: none;
-      font-weight: bold;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .loginform {
+    // border: 2px solid red;
+    width: max-content;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.4);
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      input{
+        padding: 10px 20px;
+        border-radius: 4px;
+        border: none
+      }
     }
-    img{
-      border-radius: 16px;
-      width: 100%;
+    button{
+      background: none;
+      border: none;
+      color: #ffffff;
+
     }
   }
-  .info{
+  #signup {
+    width: max-content;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.4);
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      input{
+        padding: 10px 20px;
+        border-radius: 4px;
+        border: none
+      }
+    }
+    button{
+      background: none;
+      border: none;
+      color: #ffffff;
 
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.2);
-    .intro{
-      display: grid;
-      grid-template-columns: 200px 200px;
-      gap: 10px;
-      // border: 1px solid white;
     }
   }
 }
