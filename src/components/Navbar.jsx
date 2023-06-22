@@ -26,7 +26,8 @@ function Navbar(props) {
 
       let data = await res.json();
       console.log(data.results);
-      setsearcmovidata(data.results);
+      let filtered_data = data.results.filter(e => e.poster_path)
+      setsearcmovidata(filtered_data);
     } catch (err) {
       console.log(err);
     }
@@ -48,6 +49,10 @@ function Navbar(props) {
   const searhbtn = () => {
     searchmovies(searcmovi);
     setshowmovieDiv(true);
+  };
+  const closeBtn = () => {
+
+    setshowmovieDiv(false);
   };
 
   return (
@@ -108,23 +113,38 @@ function Navbar(props) {
             width: "100%",
             zIndex: "500",
             background: "rgba(255,255,255,0.5)",
-            backdropFilter:"blur(20px)",
-            display: "flex" ,
+            backdropFilter: "blur(20px)",
+            display: "grid",
             flexWrap: "wrap",
-            justifyContent:"center",
-            gap:"30px",
+            justifyContent: "center",
+            gridTemplateColumns: "repeat( auto-fit ,350px)",
+            gap: "30px",
           }}
         >
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              gap: "30px",
+              alignItems: " center",
+              gridColumnStart: "1",
+              gridColumnEnd: "5",
+              marginTop: "20px"
+            }}
+          >
+            <h1>Search Results</h1>
+            <button style={{padding: "10px 20px" , fontWeight: "600" , background: "rgba(0,0,0,0.5)" , color: "white"}} onClick={closeBtn}>CLose</button>
+          </div>
           {searcmovidata.map((movie, i) => (
             <div
-              style={{ width: "30%" , flexGrow:"1"}}
               onClick={() => lsadata(movie)}
               className="slide-div"
               key={i}
             >
               <img
                 style={{ width: "100%" }}
-                src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
                 alt=""
               />
               <div className="slide-cont1">
