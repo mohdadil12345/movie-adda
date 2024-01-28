@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 function Signup(props) {
   let [user, setuser] = useState("");
@@ -26,6 +27,12 @@ function Signup(props) {
       password: pass,
     };
     console.log(formobj);
+
+    Swal.fire({
+      icon: "successfull",
+      title: "Register",
+      text: "Your Registration is successfull, please Login",
+    });
 
     let loginData = JSON.parse(localStorage.getItem("loginData"));
 

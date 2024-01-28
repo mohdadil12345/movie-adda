@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Signup from "./Signup";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Login(props) {
   let [email, setemail] = useState("");
@@ -23,7 +24,11 @@ function Login(props) {
       props.setLoggedIn({username:userCheck.username})
       navigate("/")
      }else{
-       alert("username or password is incorrect")
+      Swal.fire({
+        icon: "error",
+        title: "Wrong Credential",
+        text: "Your username or Password is incorrect",
+      });
      }
 
   };
